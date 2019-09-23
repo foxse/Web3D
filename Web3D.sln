@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.28307.779
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web3D", "Web3D\Web3D.csproj", "{79F0E782-202D-4A16-BD90-8808CDC775EE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessMsSqlServerProvider", "DataAccessMsSqlServerProvider\DataAccessMsSqlServerProvider.csproj", "{4EC56727-E62E-4BCC-9B65-571D29AC5337}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainModel", "DomainModel\DomainModel.csproj", "{751B77C8-852A-417F-9664-AE286BD1D729}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{79F0E782-202D-4A16-BD90-8808CDC775EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79F0E782-202D-4A16-BD90-8808CDC775EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79F0E782-202D-4A16-BD90-8808CDC775EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EC56727-E62E-4BCC-9B65-571D29AC5337}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EC56727-E62E-4BCC-9B65-571D29AC5337}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EC56727-E62E-4BCC-9B65-571D29AC5337}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EC56727-E62E-4BCC-9B65-571D29AC5337}.Release|Any CPU.Build.0 = Release|Any CPU
+		{751B77C8-852A-417F-9664-AE286BD1D729}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{751B77C8-852A-417F-9664-AE286BD1D729}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{751B77C8-852A-417F-9664-AE286BD1D729}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{751B77C8-852A-417F-9664-AE286BD1D729}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

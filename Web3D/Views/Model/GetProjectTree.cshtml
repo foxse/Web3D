@@ -1,0 +1,35 @@
+﻿@using DomainModel.Model;
+@model ProjectTreeNode
+<div>
+    <ul id="model_explorer" style="padding-left: 10px;">
+        <li id="nli_@Model.ProjectTreeNodeID">
+                @{var ulId = Model.Name.Replace('/', '-').Replace(' ', '_').Replace('.', '_');}
+                <a id="tn_@Model.ProjectTreeNodeID" class="btn btn-xs tree-node" data-toggle="collapse" data-target="#@ulId">+</a>
+                <a id="n_@Model.ProjectTreeNodeID" class="btn btn-xs model-tree-element" target-group="@ulId">@Model.Name</a><br>
+        </li>
+    </ul>
+</div>
+
+@*@functions
+{
+	public string GetChilds(IList<ProjectTreeNode> nodes)
+	{
+		string result = string.Empty;
+		foreach (var cn in nodes)
+		{
+			var ulId = cn.Name.Replace('/', '-').Replace(' ', '_').Replace('.', '_');
+			if (cn.Childs != null && cn.Childs.Any())
+			{
+				result += @"<li id=""nli_" + cn.ProjectTreeNodeID + @"><div class=""""><a id=""tn_" + cn.ProjectTreeNodeID + @""" class=""btn  btn-xs tree-node"" data-toggle=""collapse"" data-target=""#" + ulId + @""">+</a>"
+				+ @"<a id=""n_" + cn.ProjectTreeNodeID + @""" class=""btn btn-xs model-tree-element"" target-group=""" + ulId + "\">" + cn.Name + "</a>"
+				+ "<ul style=\"padding-left:10px;\" class=\"collapse\" id=\"" + ulId + "\">" + GetChilds(cn.Childs) + "</ul></div></li>";
+			}
+			else
+			{
+				result += @"<li id=""nli_" + cn.ProjectTreeNodeID + @"><a id=""n_" + cn.ProjectTreeNodeID + @""" class=""btn btn-xs elem-node"">" + cn.Name + "</a></li>";
+			}
+
+		}
+		return result;
+	}
+}*@

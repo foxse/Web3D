@@ -1,11 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using DataAccessMsSqlServerProvider;
+using DomainModel;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -30,6 +29,17 @@ namespace Web3D
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            var sqlConnectionString = Configuration.GetConnectionString("DataAccessMsSqlServerProvider");
+            //var sqlConnectionString = Configuration.GetConnectionString("aie");
+
+            services.AddDbContext<DomainModelMsSqlServerContext>(options =>
+                options.UseSqlServer(
+                    sqlConnectionString,
+                    b => b.MigrationsAssembly("DataAccessMsSqlServerProvider")
+                )
+            );
+
+            services.AddScoped<IDataAccessProvider, DataAccessMsSqlServerProvider.DataAccessMsSqlServerProvider>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
@@ -47,6 +57,14 @@ namespace Web3D
             }
 
             app.UseStaticFiles();
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
+            });
+
             app.UseCookiePolicy();
 
             app.UseMvc();

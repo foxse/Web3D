@@ -1,0 +1,15 @@
+﻿@using DomainModel.ViewModel
+@model EntityViewModel
+
+<div class="list-group">
+	<div class="list-group-item"><span class="label label-default">ID</span><span class="input-sm">@Model.ID</span></div>
+	<div class="list-group-item"><span class="label label-primary">Имя :</span><span class="input-sm">@Model.Name</span></div>
+	@foreach (var att in Model.Attributes)
+	{
+		var val = (att.Value.TextValue.Value != null) ? att.Value.TextValue.Value : att.Value.IntegerValue.Value.ToString();
+		<div  class="list-group-item">
+			<label>@att.Key</label>
+			<input style="width:25%;" class="pull-right" id="@att.Value.AttributeValueId" value="@val">
+		</div>
+	}
+</div>

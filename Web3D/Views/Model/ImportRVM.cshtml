@@ -1,0 +1,86 @@
+﻿@model string
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <environment names="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+    <meta name="viewport" content="width=device-width" />
+
+    <script src="~/js/3DViewer/three.js/build/three.min.js"></script>
+
+    <script src="~/js/3DViewer/three.js/controls/TrackballControls.js"></script>
+    <script src="~/js/3DViewer/three.js/controls/OrbitControls.js"></script>
+    <script src="~/js/3DViewer/three.js/libs/stats.min.js"></script>
+
+    <script src="~/models/@Model"></script>
+
+    @*<script src="~/js/3DViewer/json/NOU2.js"></script>*@
+
+    @*<script src="~/js/pnltri.min.js"></script>*@
+    <script src="~/js/3DViewer/libs/lodash.core.js"></script>
+    <script src="~/js/3DViewer/libs/sylvester.js"></script>
+    <script src="~/js/3DViewer/libs/libtess.min.js"></script>
+    <script src="~/js/3DViewer/libs/pnltri.min.js"></script>
+
+
+    <script src="~/js/3DViewer/libs/points-3d-to-2d.js"></script>
+
+    <script src="~/js/3DViewer/libs/triangulate.js"></script>
+
+    @*<script src="~/js/3DViewer/json/Block1.js"></script>*@
+    <title>Index</title>
+</head>
+<body style="padding:0px;">
+    <div id="properties" style="position: absolute; right:50px; top: 50px; padding: 5px; background: #ffffff; width: 20%; visibility: hidden;">
+        <h4 id="h1"></h4>
+        <P id="p1">
+        </P>
+    </div>
+    <div class="pre-scrollable" style="position: absolute; left:5px; top: 50px; padding: 5px; background: #ffffff; width: 20%; height: 90%; max-height: 90%;">
+        <ul class="list-group" id="model_explorer">
+           
+        </ul>
+    </div>
+    <div id="container" style="left:0px; top: 0px;">
+    </div>
+	<environment names="Development">
+		<script src="~/lib/jquery/dist/jquery.js"></script>
+		<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+		<script src="~/js/site.js" asp-append-version="true"></script>
+	</environment>
+	<environment names="Staging,Production">
+		<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+				asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+				asp-fallback-test="window.jQuery">
+		</script>
+		<script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/bootstrap.min.js"
+				asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+				asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
+		</script>
+		<script src="~/js/site.min.js" asp-append-version="true"></script>
+	</environment>
+    <script src="~/js/3DViewer/importModel.js"></script>
+</body>
+</html>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+
+
+@*<script src="~/js/earcut.min.js"></script>*@
